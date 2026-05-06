@@ -18,50 +18,46 @@ Outputs:
 '''
 
 # inputs
-can_continue = True
-color1 = input("Enter the first primary color you want to mix (blue, red, yellow): ").lower()
-if color1 not in ["blue", "red", "yellow"]:
-    print("I didn't recognize that color. Please make sure you entered a valid primary color (blue, red, yellow).")
-    can_continue = False
-color2 = input("Enter the second primary color you want to mix (blue, red, yellow): ").lower()
-if color2 not in ["blue", "red", "yellow"]:
-    print("I didn't recognize that color. Please make sure you entered a valid primary color (blue, red, yellow).")
-    can_continue = False
+valid_colors = ['blue', 'red', 'yellow']
+while True:
+    color1 = input("Please enter the first primary color (blue, red, or yellow: ").lower()
+    if color1 in valid_colors:
+        break
+    else:
+        print("The color you entered is invalid. Please enter 'blue', 'red', or 'yellow'.")
+
+while True:
+    color2 = input("Please enter the second primary color (blue, red, or yellow): ").lower()
+    if color2 in valid_colors:
+        break
+    else:
+        print("The color you entered is invalid. Please enter 'blue', 'red', or 'yellow'.")
 
 # processes
-if color1 == "blue" and can_continue == True:
+if color1 == "blue":
     if color2 == "red":
         result = "purple"
     elif color2 == "yellow":
         result = "green"
     else:
         result = "blue"
-else:
-    print("This program doesn't work because you entered an invalid color. Please run the program again and make sure to enter a valid primary color.")
-
-if color1 == "red" and can_continue == True:
+if color1 == "red":
     if color2 == "blue":
         result = "purple"
     elif color2 == "yellow":
         result = "orange"
     else:
         result = "red"
-else:
-    print("This program doesn't work because you entered an invalid color. Please run the program again and make sure to enter a valid primary color.")
-
-if color1 == "yellow" and can_continue == True:
+if color1 == "yellow":
     if color2 == "blue":
         result = "green"
     elif color2 == "red":
         result = "orange"
     else:
         result = "yellow"
-else:
-    print("This program doesn't work because you entered an invalid color. Please run the program again and make sure to enter a valid primary color.")
-
+        
 # outputs
-if can_continue == True:
-    print(f"When you mix {color1} and {color2}, you get {result}.")
+print(f"When you mix {color1} and {color2}, you get {result}.")
 
     
 
